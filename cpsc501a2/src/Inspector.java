@@ -16,10 +16,24 @@ public class Inspector {
 		Methods Declared
 	*/
 	public void inspect(Object obj, boolean recursive){	
-		Class aClass = obj.getClass();
-		Class superClass = aClass.getSuperclass();
+		Class givenClass = obj.getClass();
+		Class superClass = givenClass.getSuperclass();
+		
+		nameDecClass(obj);
 		superClass = nameSuperClass(obj, superClass);
 }
+
+
+	/*
+	 * Function for Naming the Declaring Class
+	 */
+	public String nameDecClass(Object obj){
+		Class someClass = obj.getClass();
+		String name = ""+ someClass;
+		System.out.println("	Class Name: "+ someClass);
+		return name;
+}
+	
 	
 	/*
 	 * Function for identifying the superclass
@@ -27,16 +41,6 @@ public class Inspector {
 	private Class nameSuperClass(Object obj, Class superClass) {
 		Class aClass;	
 		return superClass;
-}
-
-	/*
-	 * Function for Naming the Declaring Class
-	 */
-	public String nameDecClass(Object obj){
-		Class aClass = obj.getClass();
-		String classString = ""+ aClass;
-		System.out.println("	Class Name: "+ aClass);
-		return classString;
 }
 	
 	/*
