@@ -21,6 +21,7 @@ public class Inspector {
 		
 		nameDecClass(obj);
 		superClass = nameSuperClass(obj, superClass);
+		findInter(givenClass);
 }
 
 
@@ -33,30 +34,31 @@ public class Inspector {
 		System.out.println("	Class Name: "+ someClass);
 		return name;
 }
-	
-	
+		
 	/*
 	 * Function for identifying the superclass
 	 */
 	private Class nameSuperClass(Object obj, Class superClass) {
-		Class aClass;	
+		Class someClass;	
 		return superClass;
 }
 	
 	/*
 	 * Function for identifying the interfaces
 	 */
-	public void findInter(Class aClass){	
+	public void findInter(Class someClass){	
+		Class[] arrayClass = someClass.getInterfaces();
+		System.out.println("	Class Interfaces: " + Arrays.asList(arrayClass));
 }
 	/*
 	 * Function for identifying class methods
 	 */
-	public void findMethods(Class aClass){
+	public void findMethods(Class someClass){
 }
 	/*
 	 * Function for identifying the constructors
 	 */
-	public String findConstructors(Class aClass){
+	public String findConstructors(Class someClass){
 		String constructorInfo = null;
 	return constructorInfo;
 	}
@@ -64,8 +66,8 @@ public class Inspector {
 	/*
 	 * Function for identifying the class fields
 	 */
-	public Field[] findFields(Class aClass, Object obj){
-		Field[] aField = aClass.getDeclaredFields();
+	public Field[] findFields(Class someClass, Object obj){
+		Field[] aField = someClass.getDeclaredFields();
 		return aField;
 		}
 	
