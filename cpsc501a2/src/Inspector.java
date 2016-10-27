@@ -72,8 +72,20 @@ public class Inspector {
 	 * Function for identifying the constructors
 	 */
 	public String findConstructors(Class someClass){
-		String constructorInfo = null;
-	return constructorInfo;
+		String information = null;
+		try {
+			Constructor[] constructor = someClass.getConstructors();
+			for(int i=0;i< constructor.length;i++){
+				System.out.println("Constructor Name: "+ constructor[i]);
+				System.out.println("Constuctor Modifiers:" +constructor[i].getModifiers());
+				Class[] parameters = constructor[i].getParameterTypes();
+				System.out.println("Constructor Parameters: " + Arrays.asList(parameters));
+				information = "" + constructor[i] + constructor[i].getModifiers();
+			}
+		} catch (SecurityException e) {
+			e.printStackTrace();
+		}
+		return information;
 	}
 	
 	/*
