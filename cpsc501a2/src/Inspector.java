@@ -22,6 +22,9 @@ public class Inspector {
 		nameDecClass(obj);
 		superClass = nameSuperClass(obj, superClass);
 		findInter(givenClass);
+		findConstructors(givenClass);
+		findFields(givenClass, obj);
+		findMethods(givenClass);
 }
 
 
@@ -39,7 +42,19 @@ public class Inspector {
 	 * Function for identifying the superclass
 	 */
 	private Class nameSuperClass(Object obj, Class superClass) {
-		Class someClass;	
+		Class someClass;
+		while (superClass != null){
+			String cName = superClass.getName();
+			System.out.println("Super Class: " + cName);
+			
+			findConstructors(superClass);
+			findFields(superClass, obj);
+			findInter(superClass);
+			findMethods(superClass);
+			
+			someClass = superClass;
+			superClass = someClass.getSuperclass();
+		}
 		return superClass;
 }
 	
