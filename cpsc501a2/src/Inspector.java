@@ -50,10 +50,23 @@ public class Inspector {
 		Class[] arrayClass = someClass.getInterfaces();
 		System.out.println("	Class Interfaces: " + Arrays.asList(arrayClass));
 }
+	
 	/*
 	 * Function for identifying class methods
 	 */
 	public void findMethods(Class someClass){
+		Method[] methods = someClass.getDeclaredMethods();
+		
+		for(int i = 0;i < methods.length;i++){	
+			System.out.println("Method: " + methods[i]);
+			System.out.println("Return Type: " + methods[i].getReturnType());
+			System.out.println("Modifers: " + methods[i].getModifiers());
+			Class[] exceptions = methods[i].getExceptionTypes();
+			Class[] parameters = methods[i].getParameterTypes();
+			
+			System.out.println("Exceptions Thrown: " + Arrays.asList(exceptions));
+			System.out.println("Parmeter Type: " + Arrays.asList(parameters));
+		}
 }
 	/*
 	 * Function for identifying the constructors
