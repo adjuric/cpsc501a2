@@ -92,8 +92,23 @@ public class Inspector {
 	 * Function for identifying the class fields
 	 */
 	public Field[] findFields(Class someClass, Object obj){
-		Field[] aField = someClass.getDeclaredFields();
-		return aField;
+		Field[] fields = someClass.getDeclaredFields();
+		for(int i= 0;i<fields.length;i++){
+			fields[i].setAccessible(true);
+			System.out.println("Field Name: " + fields[i]);
+			System.out.println("Field Modifiers: " + fields[i].getModifiers());
+			Class<?> parameters = fields[i].getType();
+			System.out.println("Field Types: " + Arrays.asList(parameters));
+			try {
+				Object value = fields[i].get(obj);
+				System.out.println("Field Value: " + value);
+			} catch (IllegalArgumentException e) {
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				e.printStackTrace();
+			}
+		}
+		return fields;
 		}
 	
 }
