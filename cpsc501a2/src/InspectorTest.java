@@ -101,6 +101,23 @@ public class InspectorTest {
 	 */
 	@Test
 	public void testFindFieldA(){
+		Field[] fieldInfo = null;
+		Class someClass;
+		try {
+			someClass = Class.forName("ClassA");
+			Object obj = someClass.newInstance();
+			Inspector anInspect = new Inspector();
+			fieldInfo = anInspect.findFields(someClass, obj);
+			assertEquals(""+fieldInfo[1],"private double ClassA.val2");
+			
+			
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/*
@@ -108,7 +125,23 @@ public class InspectorTest {
 	 */
 	@Test
 	public void testFindFieldB(){
-		
+		Field[] fieldInfo = null;
+		Class someClass;
+		try {
+			someClass = Class.forName("ClassB");
+			Object obj = someClass.newInstance();
+			Inspector anInspect = new Inspector();
+			fieldInfo = anInspect.findFields(someClass, obj);
+			assertEquals(""+fieldInfo[1],"private double ClassB.val2");
+			
+			
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		}
 	}
 	
 
