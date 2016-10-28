@@ -55,7 +55,22 @@ public class InspectorTest {
 	 */
 	@Test
 	public void testConstructorA(){
-		
+		String inside = null;
+		Class someClass;
+		try {
+			someClass = Class.forName("ClassA");
+			Object obj = someClass.newInstance();
+			Inspector check = new Inspector();
+			inside = check.findConstructors(someClass);
+			assertEquals(inside, "public ClassA(int)1");
+			
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/*
@@ -63,7 +78,22 @@ public class InspectorTest {
 	 */
 	@Test
 	public void testConstructorB(){
-	
+		String inside = null;
+		Class someClass;
+		try {
+			someClass = Class.forName("ClassB");
+			Object obj = someClass.newInstance();
+			Inspector check = new Inspector();
+			inside = check.findConstructors(someClass);
+			assertEquals(inside, "public ClassB() throws java.lang.Exception1");
+			
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/*
