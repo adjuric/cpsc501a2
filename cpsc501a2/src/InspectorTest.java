@@ -51,52 +51,6 @@ public class InspectorTest {
 	}
 	
 	/*
-	 * Ensuring finding the declaring functions work properly Using Class C
-	 */
-	@Test
-	public void testc() {
-		String className = null;
-		Class someClass;
-		try {
-			someClass = Class.forName("ClassC");
-			Object obj = someClass.newInstance();
-			Inspector check = new Inspector();
-			className = check.nameDecClass(obj);
-			assertEquals("class ClassC", className);
-			
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (InstantiationException e) {
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	/*
-	 * Ensuring finding the declaring functions work properly Using Class D
-	 */
-	@Test
-	public void testD() {
-		String className = null;
-		Class someClass;
-		try {
-			someClass = Class.forName("ClassD");
-			Object obj = someClass.newInstance();
-			Inspector check = new Inspector();
-			className = check.nameDecClass(obj);
-			assertEquals("class ClassD", className);
-			
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (InstantiationException e) {
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	/*
 	 * Ensuring Constructors are found properly Using Class A
 	 */
 	@Test
